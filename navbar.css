@@ -1,0 +1,107 @@
+.navigation-bar {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    position: absolute;
+    width: 99vw;
+    height: fit-content;
+    left: 50%;
+    margin-left: -49.5vw;
+    margin-right: -49.5vw;
+}
+
+.navigation-bar-logo {
+    width: 75px;
+    height: 75px;
+    display: block;
+}
+
+.link-wrapper {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1vw;
+    height: 100%;
+}
+
+.link-wrapper li {
+    margin: 0;
+}
+
+.link-wrapper a {
+    text-decoration: none;
+    color: #171a1a;
+    padding: 25px 10px;
+    display: inline-block;
+    line-height: 1;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hamburger .line {
+    height: 3px;
+    width: 25px;
+    background-color: #171a1a;
+    margin: 4px 0;
+}
+
+@media (max-width: 540px) {
+    .navigation-bar {
+        justify-content: space-between;
+        width: 100vw; /* Adjust to 100vw for full width */
+        height: fit-content;
+        left: 0; /* No left margin */
+        margin: 0; /* Remove margins */
+        position: absolute;
+    }
+
+    .hamburger {
+        display: flex;
+        position: static;
+    }
+
+    .link-wrapper {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack links vertically */
+        position: fixed; /* Fixed position for full height */
+        top: 0; /* Align to top */
+        right: -100%; /* Start off-screen */
+        background-color: #171a1a; /* Slightly transparent background */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        z-index: 99; /* Make sure it appears above other elements */
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+        transition: right 0.3s ease; /* Smooth slide effect */
+    }
+
+    .link-wrapper.active {
+        display: flex; /* Show links when active */
+        right: 0; /* Slide in */
+        color: white;
+    }
+
+    .link-wrapper li {
+        border: none; /* Remove borders for full-width look */
+        width: 100%;
+        padding: 15px; /* Add padding for clickable area */
+        text-align: left; /* Align text to the left */
+        
+    }
+
+    .link-wrapper.active a {
+        color: white; /* Change text color to white when the menu is active */
+        width: 100%;
+        font-size: 10vw;
+    }
+}
